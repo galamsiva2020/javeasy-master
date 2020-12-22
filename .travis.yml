@@ -1,0 +1,25 @@
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+# http://docs.travis-ci.com/user/languages/java/
+language: java
+jdk:
+  - oraclejdk8
+  
+# http://docs.travis-ci.com/user/build-lifecycle/  
+before_install:
+  - npm install -g bower  
+
+# http://docs.travis-ci.com/user/notifications/
+notifications:
+  email: false
+
+# http://docs.travis-ci.com/user/deployment/openshift/
+deploy:
+  provider: openshift
+  user: openshift@welovecoding.com
+  password:
+    secure: BfE1w5KPJ9OoUUJVerptq1ib5yTtR6Ya0uZrqujaUccXdgEJspSaEJtLUH6BvHmXqVkovTeFrSWF+7ChnOw3B971diiiBLZPETfdryZyDlySHVW5SiI0zjfSMJW0nrPE/DmHqZZE7+fZPZh5yG3usRVNtuq56Ea1ZqxAhoUFEnU=
+  app: javeasy
+  domain: welovecoding
+  on: master

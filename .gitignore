@@ -1,0 +1,7 @@
+/confidential/
+/bower_components/
+
+# Builds
+/target/
+/deployments/**/*.*
+.dpl/
